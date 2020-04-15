@@ -2,8 +2,8 @@ package com.example.listview;
 
 import java.util.ArrayList;
 
-public class HeroesData {
-    private static String[] heroNames = {
+public class FilmData {
+    private static String[] filmNames = {
             "Kuldesak(1998)",
             "Petualangan Sherina(2000)",
             "Eliana, eliANA(2002)",
@@ -22,7 +22,7 @@ public class HeroesData {
             "Bebas(2019)"
     };
 
-    private static String[] heroDetails = {
+    private static String[] filmDetails = {
             "Kuldesak adalah film ansambel drama komedi hitam Indonesia yang dirilis pada tahun 1998. Segmen-segmen dalam film ini disutradarai antara lain oleh Riri Riza, Nan Achnas, Mira Lesmana, dan Rizal Mantovani, yang merupakan debut awal mereka di karier sutradara. Film ini dibintangi antara lain oleh Oppie Andaresta, Bianca Adinegoro, Ryan Hidayat, Wong Aksan, dan dibantu banyak bintang tamu yang notabene adalah aktor dan aktris Indonesia yang terkenal pada masanya, antara lain Tio Pakusadewo, Sophia Latjuba, Bucek Depp, Unique Priscilla, dan Dik Doank.",
             "Petualangan Sherina adalah film musikal untuk semua umur. Skenario dibuat oleh Jujur Prananto dan sutradara oleh Riri Riza memberikan andil yang besar sehingga film ini menghibur dan menyentuh. Musik yang ditata Elfa Secioria sejak awal termasuk mengantarkan Sherina menjadi penyanyi cilik paling terkemuka lewat album Andai Aku Besar Nanti.",
             "Eliana, Eliana adalah film drama Indonesia yang dirilis pada tahun 2002 yang disutradarai oleh Riri Riza. Selain meraih dua penghargaan pada Festival Film Indonesia 2004, film ini juga sempat dinominasikan dalam Vancouver Film Festival.",
@@ -42,7 +42,7 @@ public class HeroesData {
 
     };
 
-    private static int[] heroesImages = {
+    private static int[] filmImages = {
             R.drawable.film_kuldesak,
             R.drawable.film_petualangan_sherina,
             R.drawable.film_eliana_eliana,
@@ -61,14 +61,14 @@ public class HeroesData {
             R.drawable.film_bebas
     };
 
-    static ArrayList<Hero> getListData() {
-        ArrayList<Hero> list = new ArrayList<>();
-        for(int position = 0; position<heroesImages.length; position++) {
-            Hero hero = new Hero();
-            hero.setName(heroNames[position]);
-            hero.setDetail(heroDetails[position]);
-            hero.setPhoto(heroesImages[position]);
-            list.add(hero);
+    static ArrayList<Film> getListData() {
+        ArrayList<Film> list = new ArrayList<>();
+        for(int position = 0; position<filmImages.length; position++) {
+            Film film = new Film();
+            film.setName(filmNames[position]);
+            film.setDetail(filmDetails[position]);
+            film.setPhoto(filmImages[position]);
+            list.add(film);
         }
         return list;
     }

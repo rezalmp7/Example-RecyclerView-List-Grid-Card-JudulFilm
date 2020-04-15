@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvHeroes;
-    private ArrayList<Hero> list = new ArrayList<>();
+    private ArrayList<Film> list = new ArrayList<>();
     private String title = "Film Riri Riza";
 
     @Override
@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setActionBarTitle(title);
 
-        rvHeroes = findViewById(R.id.rv_heroes);
+        rvHeroes = findViewById(R.id.rv_film);
         rvHeroes.setHasFixedSize(true);
 
-        list.addAll(HeroesData.getListData());
+        list.addAll(FilmData.getListData());
         showRecyclerList();
     }
 
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerList() {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
-        ListHeroAdapter listHeroAdapter = new ListHeroAdapter(list);
+        ListFilmAdapter listHeroAdapter = new ListFilmAdapter(list);
         rvHeroes.setAdapter(listHeroAdapter);
     }
 
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerCardView() {
         rvHeroes.setLayoutManager(new LinearLayoutManager(this));
-        CardViewHeroAdapter cardViewHeroAdapter = new CardViewHeroAdapter(list);
-        rvHeroes.setAdapter(cardViewHeroAdapter);
+        CardViewFilmAdapter cardViewFilmAdapter = new CardViewFilmAdapter(list);
+        rvHeroes.setAdapter(cardViewFilmAdapter);
     }
 
     @Override

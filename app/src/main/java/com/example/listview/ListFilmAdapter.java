@@ -15,34 +15,34 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class ListHeroAdapter extends RecyclerView.Adapter<ListHeroAdapter.ListViewHolder> {
-    private ArrayList<Hero> listHero;
+public class ListFilmAdapter extends RecyclerView.Adapter<ListFilmAdapter.ListViewHolder> {
+    private ArrayList<Film> listFilm;
 
-    public ListHeroAdapter(ArrayList<Hero> list) {
-        this.listHero = list;
+    public ListFilmAdapter(ArrayList<Film> list) {
+        this.listFilm = list;
     }
 
     @NonNull
     @Override
     public ListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_hero, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_row_film, viewGroup, false);
         return new ListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
-        Hero hero = listHero.get(position);
+        Film film = listFilm.get(position);
         Glide.with(holder.itemView.getContext())
-                .load(hero.getPhoto())
+                .load(film.getPhoto())
                 .apply(new RequestOptions().override(55, 55))
                 .into(holder.imgPhoto);
-        holder.tvName.setText(hero.getName());
-        holder.tvDetail.setText(hero.getDetail());
+        holder.tvName.setText(film.getName());
+        holder.tvDetail.setText(film.getDetail());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listFilm.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -50,7 +50,7 @@ public class ListHeroAdapter extends RecyclerView.Adapter<ListHeroAdapter.ListVi
 
     @Override
     public int getItemCount() {
-        return listHero.size();
+        return listFilm.size();
     }
 
     public class ListViewHolder extends RecyclerView.ViewHolder {

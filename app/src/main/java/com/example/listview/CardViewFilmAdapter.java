@@ -16,38 +16,38 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapter.CardViewViewHolder> {
-    private ArrayList<Hero> listHero;
+public class CardViewFilmAdapter extends RecyclerView.Adapter<CardViewFilmAdapter.CardViewViewHolder> {
+    private ArrayList<Film> listFilms;
 
-    public CardViewHeroAdapter(ArrayList<Hero> list) {
-        this.listHero = list;
+    public CardViewFilmAdapter(ArrayList<Film> list) {
+        this.listFilms = list;
     }
 
     @NonNull
     @Override
     public CardViewViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_hero, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_cardview_film, viewGroup, false);
         return new CardViewViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final CardViewViewHolder holder, int position) {
 
-        Hero hero = listHero.get(position);
+        Film film = listFilms.get(position);
 
         Glide.with(holder.itemView.getContext())
-                .load(hero.getPhoto())
+                .load(film.getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
 
-        holder.tvName.setText(hero.getName());
-        holder.tvDetail.setText(hero.getDetail());
+        holder.tvName.setText(film.getName());
+        holder.tvDetail.setText(film.getDetail());
 
         holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(holder.itemView.getContext(), "Favorite" +
-                        listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                        listFilms.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -55,21 +55,21 @@ public class CardViewHeroAdapter extends RecyclerView.Adapter<CardViewHeroAdapte
             @Override
             public void onClick(View v) {
                 Toast.makeText(holder.itemView.getContext(), "Share" +
-                        listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                        listFilms.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listFilms.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return listHero.size();
+        return listFilms.size();
     }
 
     static class CardViewViewHolder extends RecyclerView.ViewHolder {

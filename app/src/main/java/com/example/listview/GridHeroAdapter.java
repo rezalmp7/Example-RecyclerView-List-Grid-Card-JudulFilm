@@ -15,37 +15,37 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class GridHeroAdapter extends RecyclerView.Adapter<GridHeroAdapter.GridViewHolder> {
-    private ArrayList<Hero> listHero;
+    private ArrayList<Film> listFilms;
 
-    public GridHeroAdapter(ArrayList<Hero> list) {
-        this.listHero = list;
+    public GridHeroAdapter(ArrayList<Film> list) {
+        this.listFilms = list;
     }
 
     @NonNull
     @Override
     public GridViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_hero, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_grid_film, viewGroup, false);
         return new GridViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final GridViewHolder holder, int position) {
         Glide.with(holder.itemView.getContext())
-                .load(listHero.get(position).getPhoto())
+                .load(listFilms.get(position).getPhoto())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.imgPhoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listFilms.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return listHero.size();
+        return listFilms.size();
     }
 
     class GridViewHolder extends RecyclerView.ViewHolder {

@@ -1,6 +1,6 @@
 package com.example.listview;
 
-public class Hero {
+public class Film {
     private String name;
     private String detail;
     private int photo;
